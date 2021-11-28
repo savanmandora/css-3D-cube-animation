@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+    height: 100vh;
+    
+    /* background: radial-gradient(rgb(53, 88, 92), rgb(6,150,253)); */
+    background-color: rgb(184, 4, 255);
+
+}
+.container{
+    height: 40vh;
+    width: 30vw;
+    position:absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+    perspective: 1000px;
+    opacity: 0.3;
+}
+
+
+.box{
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    left: 100px;
+    /* transform: rotateY(30deg); */
+    transform-style: preserve-3d;
+    /* animation:  animate 5s linear infinite; */
+    animation: new 5s linear infinite;
+    transition: 0.5s;
+}
+@keyframes new{
+    0%{
+        transform: rotateY(0deg) rotateX(30deg);
+    }
+    50%{
+        transform: rotateY(180deg) rotateX(-30deg);
+    }
+    100%{
+        transform: rotateY(360deg) rotateX(30deg);
+    }
+}
+@keyframes animate{
+    0%{
+        transform: rotateX(45deg) rotateY(-45deg);
+    }
+    25%{
+        transform: rotateX(-45deg) rotateY(-45deg);
+    }
+    50%{
+        transform: rotateX(45deg) rotateY(45deg);
+    }
+    75%{
+        transform: rotateX(-45deg) rotateY(45deg);
+    }
+    100%{
+        transform: rotateX(45deg) rotateY(-45deg);
+    }
+}
+.card{
+    height: 250px;
+    width: 250px;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+    background: rgb(132, 0, 255);
+    border: 2px solid #fff;
+    font-size: 32px;
+    box-sizing: border-box;
+    position: absolute;
+    transition: all 1s;
+    animation: changeBg 5s linear infinite;
+}
+@keyframes changeBg{
+    0%{
+        filter: hue-rotate(0deg);
+        /* background: blue; */
+    }
+    50%{
+        filter: hue-rotate(180deg);
+        /* background: pink; */
+    }
+    100%{
+        filter: hue-rotate(360deg);
+        /* background: blue; */
+    }
+}
+#left{
+    right: 125px;
+    transform:rotateY(-90deg);
+}
+#right{
+    left: 125px;
+    transform: rotateY(-90deg);
+
+}
+#top{
+    bottom: 125px;
+    transform: rotateX(-90deg);
+}
+#bottom{
+    top: 125px;
+    transform: rotateX(-90deg);
+}
+#front{
+    transform: translateZ(125px);
+    /* for check this in box set  */
+     /* transform: rotateY(30deg); */
+
+}
+#back{
+    transform: translateZ(-125px);
+    /* for check this in box set  */
+     /* transform: rotateY(130deg); */
+
+}
+.box:hover #front{
+    transform: translateZ(180px) rotateY(360deg);
+}
+.box:hover #back{
+    transform: translateZ(-180px) rotateY(360deg);
+}
+.box:hover #left{
+    right: 180px;
+}
+.box:hover #right{
+    left: 180px;
+}
+.box:hover #bottom{
+    top: 180px;
+}
+.box:hover #top{
+    bottom: 180px;
+}
+.box:hover .card{
+    box-shadow: 0 0 50px 20px rgba(255, 255, 255, 0.9);
+}
+section{
+   width: 100%;
+   height: 100vh;
+   padding: 20px 80px;
+   border: 2px solid red;
+}
+section .header{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+section .header h1{
+    font-size: 3em;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    line-height: 70px;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+section .header ul{
+    display: flex;
+    gap: 15px;
+}
+section .header ul li{ 
+    align-items: center;
+    /* justify-content: space-between; */
+}
+section .header ul li a{
+    display: inline-block;
+    color: #fff;
+    padding: 10px;
+    font-size: 20px;
+}
